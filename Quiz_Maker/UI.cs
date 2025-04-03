@@ -9,14 +9,14 @@ public class UI
         Console.WriteLine("1. Create a new Quiz");
         Console.WriteLine("2. Play Quiz");
 
-        while (value == 0 || value>Constants.GAME_MODE_OPTIONS)
+        while (Logic.ValidateGameEntry(value))
         {
             string entry = Console.ReadKey().KeyChar.ToString();
             //Console.Clear();
             value = ValidateIntEntry(entry);
             
-            if (value == 0 || value>Constants.GAME_MODE_OPTIONS)
-                Console.WriteLine("\nPlease enter a valid game option");
+            if (Logic.ValidateGameEntry(value))
+                Console.WriteLine("\n Please enter a valid game option");
         }
         
         return value;
