@@ -2,15 +2,20 @@ namespace Quiz_Maker;
 
 public class UI
 {
-    public static int DisplayWelcomeMessage()
+    public static void DisplayWelcomeMessage()
+    {
+        Console.WriteLine($"Welcome to Quiz Maker, Today you will have {Constants.GAME_MODE_OPTIONS} choices to select");
+        Console.WriteLine($"{Constants.CREATE_QUIZ_MODE} Create a new Quiz");
+        Console.WriteLine($"{Constants.PLAY_QUIZ_MODE} Play Quiz");
+    }
+
+    public static int ValidateGameModeSelection()
     {
         int value = 0;
-        Console.WriteLine("Welcome to Quiz Maker, Today you will have 2 choices to select");
-        Console.WriteLine("1. Create a new Quiz");
-        Console.WriteLine("2. Play Quiz");
-
+        
         while (Logic.ValidateGameEntry(value))
         {
+            Console.WriteLine("Please enter your choice for Quiz Mode: ");
             string entry = Console.ReadKey().KeyChar.ToString();
             //Console.Clear();
             value = ValidateIntEntry(entry);
@@ -21,7 +26,7 @@ public class UI
         
         return value;
     }
-    
+
     public static int ValidateIntEntry(string entry)
     {
         int val;
@@ -34,7 +39,7 @@ public class UI
         }
         else
         {
-            Console.WriteLine("Please enter a valid Integer entry only");
+            Console.WriteLine("Please enter a valid Integer only");
             finalVal = 0;
         }
 
