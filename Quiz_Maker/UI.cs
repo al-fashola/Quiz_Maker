@@ -45,4 +45,31 @@ public class UI
 
         return (finalVal);
     }
+
+    public static void DisplayQuestionMessage()
+    {
+        Console.WriteLine("Please enter your Question now");
+    }
+    
+    public static void DisplayAnswersMessage()
+    {
+        Console.WriteLine($"Please enter your possible Answers now (minimum {Constants.MINIMUM_ANSWERS_COUNT}) ");
+    }
+    
+    public static void DisplayMinimumAnswersMessage()
+    {
+        Console.WriteLine($"Please enter at least {Constants.MINIMUM_CORRECT_ANSWERS_COUNT} Answers minimum");
+    }
+    
+    public static void DisplayAnswersErrorMessage( List<string> answers)
+    {
+        Console.WriteLine($"Please enter only answers in the following list: {answers.ToString()} ");
+    }
+    
+    public static void DisplayCorrectAnswersMessage()
+    {
+        Console.WriteLine($"Please enter your Correct Answers now (Minimum {Constants.MINIMUM_ANSWERS_COUNT}) ");
+    }
+    
+
 }

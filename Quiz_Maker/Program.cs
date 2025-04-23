@@ -8,6 +8,9 @@ class Program
         int GameModeSelection = UI.ValidateGameModeSelection();
         
         Console.WriteLine($"\nGame mode selected {GameModeSelection}");
-        
+
+        Logic.CreateQuizMode();
+
+
     }
 }
