@@ -8,15 +8,10 @@ public class Logic
     }
 
 
-    public static Dictionary<int, string> CreateQuestion(int questionIndex)
+    public static Dictionary<int, string> CreateQuestion(int questionIndex, string questionInput)
     {
-        
         Dictionary<int, string> question = new Dictionary<int, string>();
-        UI.DisplayQuestionMessage();
-        string QuestionInput = Console.ReadLine();
-        
-        question.Add(questionIndex, QuestionInput);
-        
+        question.Add(questionIndex, questionInput);
         return question;
         
     }
@@ -26,7 +21,6 @@ public class Logic
         Dictionary<int, List<string>> answers = new Dictionary<int, List<string>>();
         List<string> answersList = new List<string>();
         
-        UI.DisplayAnswersMessage();
         while (answersList.Count <= Constants.MINIMUM_ANSWERS_COUNT)
         {
             string answerInput = Console.ReadLine();
@@ -81,7 +75,7 @@ public class Logic
 
         while (nextQuestion)
         {
-            question =CreateQuestion(indexCounter);
+            //question =CreateQuestion(indexCounter, questionInput);
             questions.Add(indexCounter, question[indexCounter]);
             
             answer = CreateAnswers(indexCounter);
