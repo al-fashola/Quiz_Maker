@@ -5,13 +5,13 @@ class Program
     static void Main(string[] args)
     {
         UI.DisplayWelcomeMessage();
-        int GameModeSelection = UI.ValidateGameModeSelection();
+        int gameModeSelection = UI.ValidateGameModeSelection();
         
-        Console.WriteLine($"\nGame mode selected {GameModeSelection}");
+        Console.WriteLine($"\nGame mode selected {gameModeSelection}");
         int indexCounter = 0;
         bool nextQuestion = true;
 
-        if (GameModeSelection == 1)
+        if (gameModeSelection == Constants.CREATE_QUIZ_MODE)
         {
             while (nextQuestion)
             {
