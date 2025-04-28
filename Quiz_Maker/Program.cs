@@ -15,27 +15,64 @@ class Program
         {
             while (nextQuestion)
             {
+                //Create question and add to questions dictionary
                 UI.DisplayQuestionMessage();
                 string QuestionInput = Console.ReadLine();
                 Dictionary<int, string> question = Logic.CreateQuestion(indexCounter, QuestionInput);
 
+                //Create answers and add to answers dictionary
                 UI.DisplayAnswersMessage();
                 Dictionary<int, List<string>> answers = Logic.CreateAnswers(indexCounter);
                 
-                List<string> correctAnswersList = new List<string>();
-
-                correctAnswersList = answers[indexCounter];
+                //initialize list of possible answers
+                List<string> answersList = new List<string>();
+                answersList = answers[indexCounter];
                 
-                Dictionary<int, List<string>> correctAnswers = Logic.CreateCorrectAnswers(indexCounter, correctAnswersList);
+                //Create correct answers and add to correct answers dictionary
+                List<string> correctAnswersList = new List<string>();
+                Dictionary<int, List<string>> correctAnswers = new Dictionary<int, List<string>>();
+                
+                while (correctAnswersList.Count < Constants.MINIMUM_CORRECT_ANSWERS_COUNT)
+                {
+                    UI.DisplayCorrectAnswersMessage();
+                    string correctAnswer = Logic.CreateCorrectAnswers(indexCounter, answersList);
+                    
+                    if (answersList.Contains(correctAnswer))
+                        correctAnswersList.Add(correctAnswer);
+                    else
+                    {
+                        UI.DisplayAnswersErrorMessage(answersList);
+                    }
+                        //bool and string
+                        
+                }
+                correctAnswers.Add(indexCounter, correctAnswersList);
+
+                char continueGame = 'N';
+                
+                while (continueGame != 'N' || continueGame != 'Y')
+                {
+                    UI.DisplayNextQuestionMessage();
+                    continueGame = Console.ReadKey().KeyChar;
+                    continueGame = char.ToUpper(continueGame);
+
+                    if (continueGame != 'N' || continueGame != 'Y')
+                        UI.DisplayNextQuestionErrorMessage();
+                }
+                
+                if(continueGame=='Y' || continueGame == 'y')
+                    nextQuestion = true;
+                else
+                {
+                    nextQuestion = false;
+                }
+                
+                indexCounter++; 
             }
-
-            
-            indexCounter++;
-
         }
 
 
-        Logic.CreateQuizMode();
+        //Logic.CreateQuizMode();
 
 
     }

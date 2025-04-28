@@ -71,5 +71,15 @@ public class UI
         Console.WriteLine($"Please enter your Correct Answers now (Minimum {Constants.MINIMUM_ANSWERS_COUNT}) ");
     }
     
+    public static void DisplayNextQuestionMessage()
+    {
+        Console.WriteLine("Would you like to create a new question? (Y/N)");
+    }
+    
+    public static void DisplayNextQuestionErrorMessage()
+    {
+        Console.WriteLine("Please enter Y or N to continue");
+    }
+    
 
 }

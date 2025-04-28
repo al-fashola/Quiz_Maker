@@ -6,8 +6,7 @@ public class Logic
     {
         return (entry == 0 || entry>Constants.GAME_MODE_OPTIONS);
     }
-
-
+    
     public static Dictionary<int, string> CreateQuestion(int questionIndex, string questionInput)
     {
         Dictionary<int, string> question = new Dictionary<int, string>();
@@ -32,32 +31,20 @@ public class Logic
 
     }
     
-    public static Dictionary<int, List<string>> CreateCorrectAnswers(int answerIndex, List<string> answersList)
+    
+    //Requires cleanup and new logic 
+    public static string CreateCorrectAnswers(int answerIndex, List<string> answersList)
     {
-        Dictionary<int, List<string>> correctAnswers = new Dictionary<int, List<string>>();
         List<string> correctAnswersList = new List<string>();
-        UI.DisplayCorrectAnswersMessage();
         
-        while (correctAnswersList.Count < Constants.MINIMUM_CORRECT_ANSWERS_COUNT)
-        {
-            string answerInput = Console.ReadLine();
-            
-            // add validation to ensure correct answers is in list of answers provided previously  
-            // add step to validate indivually 
-            if (answersList.Contains(answerInput))
-            correctAnswersList.Add(answerInput);
-            else
-            {
-                UI.DisplayAnswersErrorMessage(answersList);
-            }
-            
-        }
-        correctAnswers.Add(answerIndex, correctAnswersList);
+        string answerInput = Console.ReadLine();
 
-        return correctAnswers;
+        return answerInput;
         
     }
 
+    /*
+    //requires clean up
     public static void CreateQuizMode()
     {
         //one big ++ for loop as the index for dictionaries (questions and answers) 
@@ -100,6 +87,7 @@ public class Logic
         }
         
     }
+    */
     
     public static void PlayQuizMode(int gameMode)
     {
