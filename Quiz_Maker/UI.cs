@@ -68,7 +68,7 @@ public class UI
     
     public static void DisplayCorrectAnswersMessage()
     {
-        Console.WriteLine($"Please enter your Correct Answers now (Minimum {Constants.MINIMUM_ANSWERS_COUNT}) ");
+        Console.WriteLine($"Please enter your Correct Answers now (Minimum {Constants.MINIMUM_CORRECT_ANSWERS_COUNT}) ");
     }
     
     public static void DisplayNextQuestionMessage()
@@ -78,7 +78,7 @@ public class UI
     
     public static void DisplayNextQuestionErrorMessage()
     {
-        Console.WriteLine("Please enter Y or N to continue");
+        Console.WriteLine("\n Please enter Y or N to continue");
     }
     
 

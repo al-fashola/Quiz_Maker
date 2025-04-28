@@ -56,6 +56,7 @@ class Program
                     continueGame = Console.ReadKey().KeyChar;
                     continueGame = char.ToUpper(continueGame);
 
+                    //This needs fixing and the logic above for try catch like solution
                     if (continueGame != 'N' || continueGame != 'Y')
                         UI.DisplayNextQuestionErrorMessage();
                 }

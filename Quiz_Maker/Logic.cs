@@ -36,9 +36,7 @@ public class Logic
     public static string CreateCorrectAnswers(int answerIndex, List<string> answersList)
     {
         List<string> correctAnswersList = new List<string>();
-        
         string answerInput = Console.ReadLine();
-
         return answerInput;
         
     }
