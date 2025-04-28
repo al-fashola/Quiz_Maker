@@ -60,7 +60,7 @@ class Program
                     if (continueGame != 'N' || continueGame != 'Y')
                         UI.DisplayNextQuestionErrorMessage();
                 }
-                
+                // look into issue further here
                 if(continueGame=='Y' || continueGame == 'y')
                     nextQuestion = true;
                 else
